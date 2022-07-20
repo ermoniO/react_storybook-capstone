@@ -1,11 +1,18 @@
-export const NbosIcon = () => {
-  return (
-    <div>
-      <span>NbosIcon Component</span>
-    </div>
-  )
+import PropTypes from 'prop-types'
+import Icon from '@mui/material/Icon'
+
+export const NbosIcon = ({ icon, color, fontSize }) => {
+  return <Icon sx={{ fontSize: { fontSize }, color: { color } }}>{icon}</Icon>
 }
 
-NbosIcon.propTypes = {}
+NbosIcon.propTypes = {
+  icon: PropTypes.string,
+  color: PropTypes.string,
+  fontSize: PropTypes.number,
+}
 
-NbosIcon.defaultProps = {}
+NbosIcon.defaultProps = {
+  icon: 'warning',
+  color: '#ff0000',
+  fontSize: 48,
+}
