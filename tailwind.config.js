@@ -16,4 +16,11 @@ module.exports = {
   },
   plugins: [],
   daisyui: {},
+
+  "tailwindCSS.emmetCompletions": true,
+"editor.inlineSuggest.enabled": true,
+"editor.quickSuggestions": {
+   "strings": true
+},
+"css.validate": false,
 };

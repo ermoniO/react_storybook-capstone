@@ -1,11 +1,14 @@
 import React from 'react'
 
-const NbosTextInput = () => {
+const NbosTextInput = textInput => {
   return (
     <div>
-      <h1>NbosTextInput</h1>
+      <input
+        type="text"
+        id="textInput"
+        className="tw-rounded-md tw-border-2"
+      ></input>
     </div>
   )
 }
-
 export default NbosTextInput

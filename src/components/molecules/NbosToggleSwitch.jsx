@@ -12,5 +12,4 @@ const NbosToggleSwitch = () => {
     </div>
   )
 }
-
 export default NbosToggleSwitch

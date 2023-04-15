@@ -8,7 +8,7 @@ export const NbosCard = () => {
         <span>NbosCard Component</span>
       </div>
       <NbosIcon />
-      <NbosText />
+      <NbosText text="Hello" size="2xl" bold={true} />
     </>
   )
 }
