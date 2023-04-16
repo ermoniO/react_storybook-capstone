@@ -569,6 +569,14 @@ code {
   --tw-backdrop-sepia:  ;
 }
 
+.tw-m-2 {
+  margin: 0.5rem;
+}
+
+.tw-m-8 {
+  margin: 2rem;
+}
+
 .tw-mt-8 {
   margin-top: 2rem;
 }
@@ -579,6 +587,10 @@ code {
 
 .tw-ml-4 {
   margin-left: 1rem;
+}
+
+.tw-ml-2 {
+  margin-left: 0.5rem;
 }
 
 .tw-flex {
@@ -656,6 +668,10 @@ code {
 
 .tw-p-5 {
   padding: 1.25rem;
+}
+
+.tw-p-2 {
+  padding: 0.5rem;
 }
 
 .tw-px-\[50px\] {
@@ -739,6 +755,11 @@ code {
 .tw-text-blue-700 {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.tw-text-blue-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
 }
 
 .tw-drop-shadow-lg {
