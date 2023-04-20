@@ -1,56 +1,229 @@
+// import React from 'react'
+// import { render } from 'react-dom'
+// import Highcharts from 'highcharts'
+// import HighchartsReact from 'highcharts-react-official'
+
+// const NbosBarChart = () => {
+//   const options = {
+//     chart: {
+//       renderTo: 'container',
+//       type: 'bar',
+//     },
+//     title: {
+//       text: 'Basic Bar',
+//     },
+//     xAxis: {
+//       categories: [
+//         'Loan Production',
+//         'Deposit Growth',
+//         'TM Growth',
+//         'New Clients',
+//       ],
+//     },
+//     yAxis: {
+//       title: {
+//         text: 'Revenue',
+//       },
+//     },
+//     series: [
+//       {
+//         name: 'RM',
+//         data: [500, 1000, 2000, 0],
+//       },
+//       {
+//         name: 'This Time Last Year',
+//         data: [500, 800, 2000, 4],
+//       },
+//     ],
+
+//     plotOptions: {
+//       column: {
+//         pointPadding: 0.001,
+//         borderWidth: 0,
+//       },
+//     },
+//   }
+
+//   return (
+//     <>
+//       <div>
+//         <HighchartsReact highcharts={Highcharts} options={options} />
+//       </div>
+//     </>
+//   )
+// }
+
+// export default NbosBarChart
+
+import PropTypes from 'prop-types'
 import React from 'react'
-import { render } from 'react-dom'
+// Load Highcharts
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import { convertNum } from 'services/convertNum'
+import { BehaviorMetricsTable } from 'stories/data/behaviorMetricsTable'
+import { outcomeMetricsTable } from 'stories/data/outcomeMetricsTable'
 
-const NbosBarChart = () => {
-  const options = {
-    chart: {
-      renderTo: 'container',
-      type: 'bar',
+const options = {
+  chart: {
+    type: 'bar',
+    style: {
+      fontFamily: '',
     },
-    title: {
-      text: 'Basic Bar',
+  },
+  legend: {
+    align: 'left',
+  },
+  title: {
+    text: 'NA',
+    align: 'left',
+  },
+  xAxis: {
+    categories: [],
+    tickLength: 500,
+    endOnTick: false,
+  },
+  yAxis: {
+    labels: {
+      enabled: false,
     },
-    xAxis: {
-      categories: [
-        'Loan Production',
-        'Deposit Growth',
-        'TM Growth',
-        'New Clients',
+    visible: false,
+    tickLength: 0,
+    minorGridLineWidth: 0,
+  },
+  tooltip: {
+    formatter: function () {
+      return convertNum(this.y)
+    },
+  },
+
+  plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true,
+        formatter: function () {
+          return convertNum(this.y)
+        },
+      },
+      borderRadius: 10,
+      borderWidth: 10,
+    },
+  },
+  series: [
+    {
+      name: 'NA',
+      data: [],
+      lineWidth: 5,
+      minPointLength: 100,
+      color: '#1B6AF8',
+      zoneAxis: 'y',
+      zones: [
+        {
+          value: 3,
+          color: 'red',
+        },
+        {
+          color: '#1B6AF8',
+        },
       ],
     },
-    yAxis: {
-      title: {
-        text: 'Revenue',
-      },
+    {
+      name: 'NA',
+      data: [],
+      lineWidth: 5,
+      minPointLength: 100,
+      color: 'lightgrey',
     },
-    series: [
-      {
-        name: 'RM',
-        data: [500, 1000, 2000, 0],
-      },
-      {
-        name: 'This Time Last Year',
-        data: [500, 800, 2000, 4],
-      },
-    ],
+  ],
+  dataLabels: {
+    color: '#FFFFFF',
+  },
+}
 
-    plotOptions: {
-      column: {
-        pointPadding: 0.001,
-        borderWidth: 0,
-      },
-    },
+export const NbosBarChart = ({
+  data,
+  clientId,
+  bgColor,
+  datasetOneLabel,
+  datasetTwoLabel,
+}) => {
+  let datasetOne = []
+  let datasetTwo = []
+  let rowData = []
+  let categories = []
+
+  if (data == 'BehaviorMetricsTable') {
+    rowData = BehaviorMetricsTable
+    categories = [
+      'Avg. Overall RM Satisfaction',
+      'Client Calls',
+      'Prospect Calls',
+      'Strategies Updated',
+    ]
+    if (rowData[clientId].prospect_calls_y1 <= 2) {
+      console.log('red')
+      options.series[0].colors = [bgColor, bgColor, 'red', bgColor]
+    }
+  } else if (data == 'outcomeMetricsTable') {
+    rowData = outcomeMetricsTable
+    categories = [
+      'Loan Production',
+      'Deposit Growth',
+      'TM Growth',
+      'New Clients',
+    ]
+    // if (rowData[clientId].new_clients_y1 <= 2) {
+    //   options.series[0].colors = [bgColor, bgColor, bgColor, 'red']
+    // } else {
+    //   options.series[0].colors = [bgColor, bgColor, bgColor, bgColor]
+    // }
+  } else {
+    rowData = [{ NotProvided: 10, NotProvided: 10 }]
+    categories = ['Not Provided', 'Not Provided']
   }
 
+  for (const item in rowData[clientId]) {
+    if (item.slice(-2) == 'y1') {
+      let chartData1 = rowData[clientId][item]
+      datasetOne.push(chartData1)
+    } else if (item.slice(-2) == 'y2') {
+      let chartData2 = rowData[clientId][item]
+      datasetTwo.push(chartData2)
+    } else if (item == 'user_id') {
+    } else {
+      datasetOne.push(rowData[clientId][item])
+      datasetTwo.push(rowData[clientId][item])
+    }
+  }
+
+  //options.title.text = `${users[clientId].tl_first_name} ${users[clientId].tl_last_name} VS This Time Last Year`
+  options.title.text = ''
+  options.xAxis.categories = categories
+  // options.series[0].color = bgColor
+  options.series[0].name = datasetOneLabel
+  options.series[0].data = datasetOne
+  options.series[1].name = datasetTwoLabel
+  options.series[1].data = datasetTwo
+
   return (
-    <>
-      <div>
-        <HighchartsReact highcharts={Highcharts} options={options} />
-      </div>
-    </>
+    <div>
+      <HighchartsReact highcharts={Highcharts} options={options} />
+    </div>
   )
 }
 
-export default NbosBarChart
+NbosBarChart.propTypes = {
+  data: PropTypes.oneOf(['BehaviorMetricsTable', 'outcomeMetricsTable', '']),
+  clientId: PropTypes.number,
+  bgColor: PropTypes.string,
+  datasetOneLabel: PropTypes.string,
+  datasetTwoLabel: PropTypes.string,
+}
+
+NbosBarChart.defaultProps = {
+  data: '',
+  clientId: 0,
+  bgColor: 'black',
+  datasetOneLabel: 'Not Provided',
+  datasetTwoLabel: 'Not Provided',
+}

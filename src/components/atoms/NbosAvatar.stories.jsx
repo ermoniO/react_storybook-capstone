@@ -1,7 +1,7 @@
-import { NbosAvatar } from './NbosAvatar'
+import NbosAvatar from './NbosAvatar'
 
 export default {
-  title: 'Atoms/NbosAvatar',
+  title: 'atoms/NbosAvatar',
   component: NbosAvatar,
 }
 

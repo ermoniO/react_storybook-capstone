@@ -1,7 +1,7 @@
 import { NbosDashboard } from './NbosDashboard'
 
 export default {
-  title: 'Organisms/NbosDashboard',
+  title: 'Organism/NbosDashboard',
   component: NbosDashboard,
 }
 

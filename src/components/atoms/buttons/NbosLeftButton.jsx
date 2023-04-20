@@ -1,14 +1,18 @@
 import { NbosText } from '../NbosText'
+import PropTypes from 'prop-types'
 
-const NbosLeftButton = () => {
+const NbosLeftButton = ({ children }) => {
   return (
     <div>
       <button className="tw-border-2 tw- tw-p-2 tw-border-blue-600 tw-rounded-l-lg">
         {' '}
-        <NbosText size="xl" text="Button" color="#003EFF" />
+        {children}
       </button>
     </div>
   )
 }
 
+NbosLeftButton.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 export default NbosLeftButton

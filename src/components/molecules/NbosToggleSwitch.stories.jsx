@@ -1,4 +1,4 @@
-import NbosToggleSwitch from './NbosToggleSwitch'
+import { NbosToggleSwitch } from './NbosToggleSwitch'
 
 export default {
   title: 'molecules/NbosToggleSwitch',
