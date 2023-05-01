@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { NbosButton } from '../atoms/NbosButton'
+import { NbosButton } from '../atoms/NbosButtonz'
 import './header.css'
 
 export const NbosHeader = ({ user, onLogin, onLogout, onCreateAccount }) => (

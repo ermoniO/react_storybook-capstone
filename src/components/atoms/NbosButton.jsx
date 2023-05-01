@@ -1,42 +1,39 @@
-import PropTypes from 'prop-types'
-import './button.css'
+import React from 'react'
+import cx from 'classnames'
 
-export const NbosButton = ({
-  primary,
-  backgroundColor,
-  size,
-  label,
-  ...props
-}) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
-
+const NbosButton = ({ handleClick, selectedChart }) => {
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' ',
-      )}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
+    <div className="tw-inline-block">
+      <button
+        // style={{
+        // color: selectedChart === 'outcome' ? 'white' : 'black',
+        // backgroundColor: selectedChart === 'outcome' ? 'blue' : 'white',
+        // }}
+        onClick={handleClick}
+        className={cx({
+          'tw-border-blue-700 tw-border-2 tw-p-2 tw-m-0 tw-rounded-l-lg tw-px-8': true,
+          'tw-bg-blue-700 tw-text-white': selectedChart === 'outcome',
+        })}
+      >
+        Outcome Metrics
+      </button>
+      <button
+        // style={{
+        //   color: selectedChart === 'behavior' ? 'white' : 'black',
+        //   backgroundColor: selectedChart === 'behavior' ? 'blue' : 'white',
+        // }}
+        onClick={handleClick}
+        // Destructred function
+        // Accepts args and return a string
+        className={cx({
+          ' tw-border-blue-700 tw-border-2 tw-p-2 tw-m-0 tw-text-white-700 tw-rounded-r-lg tw-px-8': true,
+          'tw-bg-blue-700 tw-text-white': selectedChart === 'behavior',
+        })}
+      >
+        Behavior Metrics
+      </button>
+    </div>
   )
 }
 
-NbosButton.propTypes = {
-  primary: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-}
-
-NbosButton.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
-  onClick: undefined,
-}
+export default NbosButton

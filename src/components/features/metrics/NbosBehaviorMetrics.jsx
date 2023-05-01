@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
-const NbosMetrics = () => {
-  const [view, setView] = useState('outcome') // default view is Outcome Metrics
+export const NbosBehaviorMetrics = () => {
+  const [view, setView] = useState('behavior') // default view is Outcome Metrics
   const [data, setData] = useState({
     rmSatisfaction: [3, 6.0], // this year's and last year's RM satisfaction data
     clientCalls: [10, 8], // this year's and last year's client calls data
@@ -12,10 +12,10 @@ const NbosMetrics = () => {
     strategiesUpdated: [20, 18], // this year's and last year's strategies updated data
   })
 
+  // handle switching between views
   const handleViewChange = e => {
     setView(e.target.value)
   }
-
   const options = {
     chart: {
       type: 'bar',
@@ -103,14 +103,13 @@ const NbosMetrics = () => {
     },
   }
 
+  // Adding this makes the RM legend color turn red not the prospect calls
+  // if (data.prospectCalls[0] < 5) {
+  //   options.series[0].color = 'red'
+  // }
   return (
     <div>
-      {' '}
-      <div>
-        <HighchartsReact highcharts={Highcharts} options={options} />
-      </div>
+      <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   )
 }
-
-export default NbosMetrics

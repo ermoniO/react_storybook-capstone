@@ -1,12 +1,11 @@
-import { NbosTable } from './NbosTable'
-import { opportunitiesDetailsTable } from 'stories/data/opportunitiesDetailsTable'
+import NbosBar from './NbosBar'
 
 export default {
-  title: 'molecules/NbosTable',
-  component: 'NbosTable',
+  title: 'molecules/NbosBar',
+  component: 'NbosBar',
 }
 
-const Template = args => <NbosTable {...args} />
+const Template = args => <NbosBar {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {}
