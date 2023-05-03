@@ -11,7 +11,6 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import { BehaviorMetricsTable } from 'stories/data/behaviorMetricsTable'
 import { NbosMetrics } from 'components/features/metrics/NbosMetrics'
 
 export function EditPage() {
@@ -39,13 +38,15 @@ export function EditPage() {
       <main className="tw-mt-8">
         <div className="tw-flex tw-px-[10px]">
           <aside className="tw-min-w-[5%]">
-            <div className="tw-bg-slate-200 tw-h-screen" />
+            <div className="tw-bg-slate-700 tw-min-h-screen" />
           </aside>
           <section className="tw-grow">
             <NbosDashboardOverviewTemplate />
-            <NbosMetrics />
-            <NbosOpportunitiesSummaryTemplate />
-            <NbosOpportunitiesTableTemplate />
+            <NbosDashboardOverviewTemplate />
+            <NbosDashboardOverviewTemplate />
+            {/* <NbosMetrics /> */}
+            {/* <NbosOpportunitiesSummaryTemplate /> */}
+            {/* <NbosOpportunitiesTableTemplate /> */}
           </section>
         </div>
       </main>
