@@ -37,16 +37,14 @@ export function EditPage() {
 
       <main className="tw-mt-8">
         <div className="tw-flex tw-px-[10px]">
-          <aside className="tw-min-w-[5%]">
-            <div className="tw-bg-slate-700 tw-min-h-screen" />
-          </aside>
+          {/* <aside className="tw-min-w-[5%]">
+            <div className="tw-bg-slate-700 tw-h-screen" />
+          </aside> */}
           <section className="tw-grow">
             <NbosDashboardOverviewTemplate />
-            <NbosDashboardOverviewTemplate />
-            <NbosDashboardOverviewTemplate />
-            {/* <NbosMetrics /> */}
-            {/* <NbosOpportunitiesSummaryTemplate /> */}
-            {/* <NbosOpportunitiesTableTemplate /> */}
+            <NbosMetrics />
+            {/* <NbosOpportunitiesSummaryTemplate />
+            <NbosOpportunitiesTableTemplate /> */}
           </section>
         </div>
       </main>

@@ -25,50 +25,53 @@ export const NbosOpportunitiesTableTemplate = (
 
   return (
     <>
-      <div
-        className="ag-theme-alpine ag-style"
-        style={{
-          margin: '2rem',
-          width: '95%',
-        }}
-      >
+      <div className="tw-bg-white tw-drop-shadow-2xl tw-m-8 tw-rounded-xl">
         <div
+          className="ag-theme-alpine ag-style"
           style={{
-            borderBottom: isShortened ? 'solid 2px #1B6AF8' : '',
-            width: '10rem',
-            padding: '.5rem',
-            marginLeft: '1.2rem',
+            margin: '2rem',
+            width: '95%',
           }}
         >
-          <button onClick={handleClick}>
-            <NbosText text="Top 5 Opportunities" size="sm" bold={true} />
-          </button>
-        </div>
+          <div
+            style={{
+              borderBottom: isShortened ? 'solid 2px #1B6AF8' : '',
+              width: '10rem',
+              padding: '.5rem',
+              marginLeft: '1.2rem',
+            }}
+          >
+            <button onClick={handleClick}>
+              <NbosText text="Top 5 Opportunities" size="sm" bold={true} />
+            </button>
+          </div>
 
-        <NbosTable
-          data={opportunitiesDetailsTable}
-          rowHeight={80}
-          isShortened={isShortened}
-        />
-        <div
-          style={{
-            textAlign: 'center',
-            padding: '2rem',
-            borderBottom: 'solid .5px #D3D3D3',
-          }}
-        >
-          <button onClick={handleClick}>
-            <NbosText
-              text={isShortened ? 'Show Full Pipeline' : 'Shorten Pipeline'}
-              size="sm"
-              color="#1B6AF8"
-            />
-          </button>
+          <NbosTable
+            data={opportunitiesDetailsTable}
+            rowHeight={80}
+            isShortened={isShortened}
+          />
+          <div
+            style={{
+              textAlign: 'center',
+              padding: '2rem',
+              borderBottom: 'solid .5px #D3D3D3',
+            }}
+          >
+            <button onClick={handleClick}>
+              <NbosText
+                text={isShortened ? 'Show Full Pipeline' : 'Shorten Pipeline'}
+                size="sm"
+                color="#1B6AF8"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </>
   )
 }
+
 // --ag-grid-size
 
 NbosOpportunitiesTableTemplate.propTypes = {

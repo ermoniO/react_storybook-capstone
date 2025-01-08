@@ -4,7 +4,7 @@ export const NbosDashboardTemplate = () => {
   return (
     <>
       <div>
-        <span>NbosDashboardTemplate Component</span>
+        <span></span>
       </div>
       <NbosDashboard />
     </>

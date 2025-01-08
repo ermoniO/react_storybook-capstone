@@ -2,8 +2,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll": false,
-    "source.organizeImports": false
+    "source.fixAll": "never",
+    "source.organizeImports": "never"
   },
   "eslint.options": {
     "overrideConfigFile": "./.eslintrc"

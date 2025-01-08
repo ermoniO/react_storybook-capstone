@@ -14,7 +14,7 @@ export const NbosMetrics = () => {
     }
   }
   return (
-    <div className="tw-drop-shadow-xl">
+    <div className="tw-bg-white tw-drop-shadow-2xl tw-m-8 tw-rounded-xl">
       <NbosChartHeader
         handleClick={handleClick}
         selectedChart={selectedChart}
