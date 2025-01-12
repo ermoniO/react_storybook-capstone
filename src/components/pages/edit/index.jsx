@@ -33,8 +33,8 @@ export function EditPage() {
       <div style={{ textAlign: 'center', marginTop: '20px', padding: '10px' }}>
         <h2>Content Unavailable</h2>
         <p>
-          The dashboard is not accessible on smaller screens. Please use a
-          larger device.
+          Due to the nature of this application, the dashboard is not accessible
+          on smaller screens. Please view this application on a desktop.
         </p>
       </div>
     )

@@ -38,7 +38,8 @@ export const NbosClient = ({ pageData }) => {
           className="dbCard"
           bgColor="white"
           title="TOTAL RELATIONSHIPS"
-          count={pageData['total.relationships']}
+          count="48"
+          // count={pageData['total.relationships']}
         />
       </Grid>
       <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -46,7 +47,8 @@ export const NbosClient = ({ pageData }) => {
           className="dbCard"
           bgColor="white"
           title="Credit Only Relationships"
-          count={pageData['credit.only.relationships']}
+          count="6"
+          // count={pageData['credit.only.relationships']}
         />
       </Grid>
       <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -54,7 +56,8 @@ export const NbosClient = ({ pageData }) => {
           className="dbCard"
           bgColor="white"
           title="Relationships with <$25k TTM Revenue"
-          count={pageData['relationships.low.revenue']}
+          count="35"
+          // count={pageData['relationships.low.revenue']}
         />
       </Grid>
       <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -62,7 +65,8 @@ export const NbosClient = ({ pageData }) => {
           className="dbCard"
           bgColor="white"
           title="Top Prospects"
-          count={pageData['top.prospects']}
+          count="5"
+          // count={pageData['top.prospects']}
         />
       </Grid>
       <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
@@ -70,7 +74,8 @@ export const NbosClient = ({ pageData }) => {
           className="dbCard"
           bgColor="white"
           title="Suspects"
-          count={pageData['suspects']}
+          count="2"
+          // count={pageData['suspects']}
         />
       </Grid>
     </Grid>
