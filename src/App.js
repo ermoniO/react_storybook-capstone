@@ -10,8 +10,8 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="/edit" element={<EditPage />} />
+        <Route path="/" element={<EditPage />} />
+        {/* <Route path="/edit" element={< />} /> */}
         <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </BrowserRouter>
